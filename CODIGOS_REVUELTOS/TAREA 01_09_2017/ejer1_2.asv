@@ -1,0 +1,9 @@
+%CONSIDERE LAS FUNCIONES GRAFIQUE Y ENCUENTRE POR EL EL METODO DE
+%NEWTON-RAPHSON CON PRESICION DE 1X10^-4 SUS PUNTOS DE INTERSECCION
+clear all;clc
+syms x;
+%definimos nuestra funcion
+g=exp(-x^2)+sqrt(pi);
+%grafiamos la funcion
+ezplot(g,[-5,5]);
+grid on;

@@ -1,0 +1,11 @@
+%CONSIDERE LAS FUNCIONES GRAFIQUE Y ENCUENTRE POR EL EL METODO DE
+%NEWTON-RAPHSON CON PRESICION DE 1X10^-4 SUS PUNTOS DE INTERSECCION
+clear all;clc
+syms x
+%definimos nuestra funcion
+f=(x-1/8)^2*exp(x^2);
+%graficamos la funcion
+ezplot(f,[-1,1]);
+grid on;
+d=diff(f);
+

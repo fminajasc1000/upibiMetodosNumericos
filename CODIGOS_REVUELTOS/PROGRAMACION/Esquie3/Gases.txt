@@ -1,0 +1,3 @@
+Helio,He,200,30,0.12
+Hidrogeno,H,90,78,0.2
+Radio,Rad,120,120,12

@@ -1,0 +1,5 @@
+Helio,He,120,200,1
+Carbonato,Ca,12,123,12
+Uranio,Ur,5000,12,32
+Plutonio,Plu,2000,30,1
+Cadmio,Cdmi,800,300,120
