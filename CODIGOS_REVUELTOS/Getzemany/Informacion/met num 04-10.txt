@@ -1,0 +1,62 @@
+Se representan los alargamientos de un resorte correspondientes a fuerzas de diferente magnitud que lo deforman
+Fuerza (kgf)         0        2        3        6        7
+Long de resorte (m) 0.120    0.153    0.170    0.225    0.280
+x=[0 2 3 6 7]
+y=[0.120,0.153, 0.170, 0.225, 0.280]
+plot(x,y,"*")
+n=5
+SX=sum(x)
+SY=sum(y)
+SXX=sum(x.^2)
+SXY=sum(x.*y)
+A=[n SX SY; SX SXX SXY]
+A(1,:)=A(1,:)/A(1,1);
+A(2,:)=A(2,:)-A(1,:)*A(2,1)
+A(2,:)=A(2,:)/A(2,2);
+A(1,:)=A(1,:)-A(2,:)*A(1,2)
+a0=A(1,3)
+a1=A(2,3)
+f=@(x)+a0+a1*x
+X=min(x)-1:max(x)+1
+Y=f(x)
+hold on
+plot(X,Y)
+
+Regresion
+x=0:5
+y=[2.1 7.7 13.6 27.2 40.9 61.1]
+plot(x,y,"*")
+n=6
+SX=sum(x)
+SY=sum(y)
+SXX=sum(x.^2)
+SXXX=sum(x.^3)
+SXXXX=sum(x.^4)
+SY=sum(y)
+SXY=sum(x.*y)
+SXXY=sum(x.^2*y)
+A=[n SX SXX SY;SX SXX SXXX SXY;SXX SXXX SXXXX SXXY]
+%resolvindo con pivotaje parcial
+aux=A(1,:);
+A(1,:)=A(3,:);
+A(3,:);
+A(1,:)=A(1,:)/A(1,1);
+A(2,:)=A(2,:)-A(1,:)*A(2,1);
+A(3,:)=A(3,:)-A(1,:)*A(3,1)
+aux=A(2,:);
+A(2,:)=A(3,:);
+A(3,:)=aux
+A(2,:)=A(2,:)/A(2,2);
+A(3,:)=A(3,:)-A(2,:)*A(3,2);
+A(1,:)=A(1,:)-A(2,:)*A(1,2)
+A(3,:)=A(3,:)/A(3,3);
+A(2,:)=A(2,:)-A(2,:)*A(2,3);
+A(1,:)=A(1,:)-A(2,:)*A(1,3)
+a0=A(1,4)
+a1=A(2,4)
+a2=A(3,4)
+f=@(X) a0+a1*X+a2*X.^2
+X=min(x)-1:0.1:max(x)+1
+Y=f(x)
+hold on
+plot(X,Y)
