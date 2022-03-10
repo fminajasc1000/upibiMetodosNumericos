@@ -1,7 +1,7 @@
 clc; 
 clear all; 
 close all
-f=@(x)x.*log(3.*x+1);
+f=@(x)x*log(3x+1);
 a=1;
 syms x
 %Calculando P1
@@ -35,7 +35,7 @@ p5=p4+f5(a)/factorial(5)*(x-a)^5;
 p5=vpa(expand(p5),5);
 pretty(p5)
 %ERRORES
-xe=1/3;
+xe=2.5;
 vr=f(xe);
 %error p2
 va=double(subs(p2,xe));
